@@ -1,3 +1,12 @@
 .is-active {
     font-weight: bold;
 }
+
+.DateRangePickerInput {
+    padding-right: 24px;
+}
+
+.DateRangePickerInput_arrow {
+    padding: 0 23px;
+}
+

@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
-import { addExpense } from "./actions/expenses";
+import { startSetExpenses } from "./actions/expenses";
 import { setTextFilter } from "./actions/filters";
 import getVisibleExpenses from './selectors/expenses';
 import 'normalize.css/normalize.css';
 import './style.css';
+import './firebase/firebase';
 
 const store = configureStore();
 
@@ -18,7 +19,12 @@ const jsx = (
     </Provider>
 );
 
-ReactDOM.render(jsx , document.getElementById('root'));
+ReactDOM.render(<p>Loading...</p>, document.getElementById('root'));
+
+store.dispatch(startSetExpenses()).then(() => {
+    ReactDOM.render(jsx , document.getElementById('root'));
+});
+
 
 
 
@@ -347,11 +353,25 @@ const AuthInfo = requireAuthentication(Info);
 // ReactDOM.render(<AdminInfo isAdmin={false} info="There are the details" />, document.getElementById('root'));
 ReactDOM.render(<AuthInfo isAutheticated={true} info="There are the details" />, document.getElementById('root'));
 
-
-
-
-
 */
+
+
+// Promises ES6 exercise
+
+/*const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve('This is my resolved data');
+    }, 5000);
+});
+
+console.log('before');
+
+promise.then((data) => {
+    console.log('1', data);
+})
+
+
+console.log('after');*/
 
 
 
