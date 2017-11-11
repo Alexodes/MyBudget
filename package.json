@@ -5,6 +5,7 @@
   "dependencies": {
     "express": "^4.16.2",
     "firebase": "^4.6.1",
+    "history": "^4.7.2",
     "jest": "^21.2.1",
     "moment": "^2.19.1",
     "normalize.css": "^7.0.0",
